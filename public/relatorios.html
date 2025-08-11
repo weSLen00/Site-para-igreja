@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios Financeiros</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionais para layout ou visibilidade se necessário */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Relatórios Financeiros</h1>
+        <nav>
+            <ul>
+                <li><a href="dizimistas.html">Dizimistas</a></li>
+                <li><a href="lancamentos.html">Lançamentos (Entradas/Saídas)</a></li>
+                <li><a href="relatorios.html">Relatórios Financeiros</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><button id="btn-logout">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>Relatório Mensal do Caixa</h2>
+            
+            <p id="message-area" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; background-color: #e0e0e0;"></p>
+
+            <section id="relatorio-financeiro-section" class="hidden"> <div class="form-group">
+                    <label for="mes">Mês:</label>
+                    <input type="number" id="mes" min="1" max="12" value="7" required>
+                </div>
+                <div class="form-group">
+                    <label for="ano">Ano:</label>
+                    <input type="number" id="ano" min="2000" value="2025" required>
+                </div>
+                <button id="gerar-relatorio-btn">Gerar Relatório</button>
+
+                <h3>Dados do Relatório (<span id="relatorio-periodo"></span>)</h3>
+                <div id="resumo-financeiro">
+                    <p>Saldo Inicial do Mês: <span id="saldo-inicial">R$ 0.00</span></p>
+                    <p>Total de Entradas: <span id="total-entradas">R$ 0.00</span></p>
+                    <p>Total de Saídas: <span id="total-saidas">R$ 0.00</span></p>
+                    <p>Saldo de Caixa Atual: <span id="saldo-atual">R$ 0.00</span></p>
+                    <p>Total Geral (com saldo inicial): <span id="total-geral">R$ 0.00</span></p>
+                </div>
+                
+                <h4>Ofertas por Categoria</h4>
+                <ul id="ofertas-por-categoria">
+                    </ul>
+
+                <hr>
+
+                <section id="lista-lancamentos-relatorio">
+                    <h3>Lançamentos Recentes</h3>
+                    <div class="list-container">
+                        <table id="lancamentos-table-relatorio">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Dizimista ID</th>
+                                    <th>Natureza</th>
+                                    <th>Tipo/Categoria</th>
+                                    <th>Valor</th>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lancamentos-table-body-relatorio">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr>
+
+                <section id="lista-dizimistas-relatorio">
+                    <h3>Dizimistas Cadastrados</h3>
+                    <div class="list-container">
+                        <table id="dizimistas-table-relatorio">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Data Nasc.</th>
+                                    <th>Endereço Completo</th> <th>Telefone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dizimistas-table-body-relatorio">
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section> </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="relatorios.js"></script>
+</body>
+</html>

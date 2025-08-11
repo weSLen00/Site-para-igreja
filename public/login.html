@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Tesoureiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Login do Tesoureiro</h1>
+        <nav>
+            <ul>
+                <li><a href="dizimistas.html">Dizimistas</a></li>
+                <li><a href="lancamentos.html">Lançamentos (Entradas/Saídas)</a></li>
+                <li><a href="relatorios.html">Relatórios Financeiros</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>Acesso Restrito</h2>
+            <section id="login-form-section">
+                <form id="login-form">
+                   <p><label for="username">Usuário:</label>
+                    <input type="text" id="username" required></p>
+
+                    <p><label for="password">Senha:</label>
+                    <input type="password" id="password" required></p>
+
+                    <button type="submit">Entrar</button>
+                    <p id="login-message" style="color: red; margin-top: 15px;"></p>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

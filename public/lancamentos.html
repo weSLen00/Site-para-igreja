@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançamentos Financeiros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Lançamentos Financeiros</h1>
+        <nav>
+            <ul>
+                <li><a href="dizimistas.html">Dizimistas</a></li>
+                <li><a href="lancamentos.html">Lançamentos (Entradas/Saídas)</a></li>
+                <li><a href="relatorios.html">Relatórios Financeiros</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><button id="btn-logout">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>Cadastrar Novo Lançamento</h2>
+            
+            <p id="message-area" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; background-color: #e0e0e0;"></p>
+            
+            <section id="form-lancamento">
+                <form id="lancamento-form">
+                    <div class="form-group">
+                        <label for="natureza">Natureza:</label>
+                        <select id="natureza" name="natureza" required>
+                            <option value="">Selecione</option>
+                            <option value="Entrada">Entrada</option>
+                            <option value="Saida">Saída</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo_de_contribuicao">Tipo/Categoria:</label> <select id="tipo_de_contribuicao" name="tipo_de_contribuicao" required> <option value="">Selecione</option>
+                            <option value="Oferta EBD">Oferta EBD</option>
+                            <option value="Oferta Culto Evangelistico">Oferta Culto Evangelístico</option> 
+                            <option value="Dizimo">Dízimo</option> 
+                            <option value="Oferta PBB">Oferta PBB</option> 
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_dizimista">Dizimista (apenas para Entradas, opcional):</label>
+                        <input type="text" id="id_dizimista" name="id_dizimista" placeholder="ID do Dizimista (se aplicável)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="valor">Valor:</label>
+                        <input type="number" id="valor" name="valor" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data_contribuicao">Data:</label>
+                        <input type="date" id="data_contribuicao" name="data_contribuicao" required>
+                    </div>
+
+                    <div class="form-group full-width"> 
+                        <label for="observacao">Descrição (Opcional):</label>
+                        <textarea id="observacao" name="observacao" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit">Registrar Lançamento</button>
+                </form>
+            </section>
+
+            </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="lancamentos.js"></script>
+</body>
+</html>

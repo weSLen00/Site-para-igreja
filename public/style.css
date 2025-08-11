@@ -1,0 +1,369 @@
+/* public/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 80px; /* Garante que o conteúdo não fique sob o cabeçalho fixo */
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+header {
+    background-color: #0056b3; /* Cor de fundo do cabeçalho */
+    color: white;
+    padding: 15px 30px; /* Mantido o padding horizontal para 30px */
+    
+    position: fixed; /* Cabeçalho fixo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+
+    display: flex; /* Habilita o Flexbox */
+    justify-content: space-between; /* Distribui espaço entre o título e a navegação */
+    align-items: center; /* Alinha verticalmente os itens */
+    min-height: 60px; /* Altura mínima para o cabeçalho */
+}
+
+header h1 {
+    color: white;
+    margin: 0; /* Remove margem padrão */
+    font-size: 24px;
+    padding-right: 20px; /* Espaço entre o título e o início da navegação */
+    white-space: nowrap; /* Impede que o título quebre em várias linhas */
+    flex-shrink: 0; /* Impede que o título encolha além do necessário */
+}
+
+nav {
+    display: flex; /* O próprio elemento nav agora é um container flexível */
+    align-items: center; /* Alinha os itens (UL e botão Sair) verticalmente */
+    flex-grow: 1; /* Permite que o nav ocupe o espaço disponível */
+    justify-content: flex-end; /* Alinha o conteúdo do nav (links e botão) à direita */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre os links individuais (Dizimistas, Lançamentos, etc.) */
+    flex-shrink: 0; /* Impede que a lista de links encolha demais */
+    margin-right: 50px; /* Margem à direita da UL para afastar os links */
+}
+
+nav ul li {
+    margin-left: 0; /* O gap no nav ul já gerencia o espaçamento */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px; /* Padding para a área clicável dos links */
+    transition: background-color 0.3s ease;
+    position: relative;
+    display: block; 
+    white-space: nowrap; /* Impede que o texto do link quebre a linha */
+}
+
+nav ul li a:hover {
+    color: #a0cffc;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Estilo para o botão "Sair" */
+#btn-logout {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 0px; /* Mantido margin-left para espaçar do último item da UL */
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Impede que o texto "Sair" quebre */
+    flex-shrink: 0; /* Impede que o botão encolha mais do que o necessário */
+}
+
+#btn-logout:hover {
+    background-color: #c82333;
+}
+
+/* --- NOVO ESTILO PARA O FORMULÁRIO DE LOGIN --- */
+#login-form label {
+    display: inline-block; /* Permite que o label e o input fiquem na mesma linha */
+    width: 80px; /* Largura fixa para o label para alinhamento */
+    text-align: right; /* Alinha o texto do label à direita */
+    margin-right: 10px; /* Espaço entre o label e o input */
+    margin-bottom: 15px; /* Mantém o espaçamento entre as linhas */
+    vertical-align: middle; /* Alinha o label verticalmente com o input */
+}
+
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    /* Removido 'width: 100%;' para que possam ser inline e ter largura controlada */
+    width: 200px; /* Largura fixa para os campos de input, ajuste conforme necessário */
+    display: inline-block; /* Permite que o input e o próximo elemento fiquem na mesma linha */
+    vertical-align: middle; /* Alinha o input verticalmente com o label */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 16px;
+    margin-bottom: 15px; /* Mantém o espaçamento entre as linhas */
+}
+
+#login-form button[type="submit"] {
+    margin-left: 10px; /* Espaço à esquerda do botão para alinhar com os inputs */
+    vertical-align: middle; /* Alinha o botão verticalmente com os inputs */
+}
+/* --- FIM DO NOVO ESTILO PARA O FORMULÁRIO DE LOGIN --- */
+
+
+/* Estilos para formulários (geral - garantindo que não sobrescreva o login-form) */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="tel"], /* ADICIONADO AQUI: Tipo "tel" para o telefone */
+.form-group select {
+    width: 100%; /* Isso se aplica aos inputs fora do login-form */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+.form-group-inline {
+    display: inline-block; 
+    margin-right: 20px; 
+    margin-bottom: 15px;
+    vertical-align: top; 
+}
+
+.form-group-inline label,
+.form-group-inline input {
+    display: block; 
+}
+
+/* Estilo para botões gerais (exceto logout, que tem estilo próprio) */
+button[type="submit"], /* Apenas para botões que não estão dentro de #login-form */
+#btn-gerar-relatorio,
+#btn-exportar-excel {
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; 
+}
+
+#login-form button[type="submit"] { /* Re-especificando o botão de submit do formulário de login */
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    /* margin-top pode não ser necessário aqui devido ao vertical-align */
+}
+
+
+button[type="submit"]:hover,
+#btn-gerar-relatorio:hover,
+#btn-exportar-excel:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos de tabela */
+.list-container {
+    max-height: 400px; 
+    overflow-y: auto; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #e9e9e9;
+}
+
+/* Estilos para as mensagens de feedback */
+#message-area,
+#login-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#message-area.success,
+#login-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#message-area.error,
+#login-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilos específicos para a página de relatórios */
+#filtro-relatorio {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+#filtro-relatorio label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#filtro-relatorio input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+#dados-relatorio {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+#dados-relatorio p {
+    margin-bottom: 10px;
+}
+
+#dados-relatorio h2 {
+    font-size: 20px;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#dados-relatorio #relatorio-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+#btn-exportar-excel {
+    margin-top: 20px;
+    display: none;
+}
+
+/* Estilos para botões de ação (editar/excluir) dentro das tabelas */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.action-buttons button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons .btn-edit {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.action-buttons .btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.action-buttons .btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.action-buttons .btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para inputs de data */
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}

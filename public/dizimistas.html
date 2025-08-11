@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Dizimistas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Dizimistas</h1>
+        <nav>
+            <ul>
+                <li><a href="dizimistas.html">Dizimistas</a></li>
+                <li><a href="lancamentos.html">Lançamentos (Entradas/Saídas)</a></li>
+                <li><a href="relatorios.html">Relatórios Financeiros</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><button id="btn-logout">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <h2>Gerenciar Dizimistas</h2>
+            
+            <p id="message-area" style="display: none; padding: 10px; margin-bottom: 15px; border-radius: 5px; background-color: #e0e0e0;"></p>
+
+            <section id="form-dizimista">
+                <h3>Novo Dizimista</h3>
+                <form id="dizimista-form">
+                    <div class="form-group">
+                        <label for="nome_completo">Nome Completo:</label>
+                        <input type="text" id="nome_completo" name="nome_completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" maxlength="11" placeholder="Apenas números">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data_nascimento">Data de Nascimento:</label>
+                        <input type="date" id="data_nascimento" name="data_nascimento">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rua">Rua:</label>
+                        <input type="text" id="rua" name="rua" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero_casa">Número:</label>
+                        <input type="text" id="numero_casa" name="numero_casa">
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" placeholder="XXXXX-XXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    
+                    <button type="submit">Cadastrar Dizimista</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="dizimistas.js"></script>
+</body>
+</html>
